@@ -4,7 +4,7 @@ Based on loading random characters, the final result will contain a combination 
 __How to Use?__
 
 _Android_\
-Download Termux: https://f-droid.org/repo/com.termux_118.apk \
+Download Termux: https://f-droid.org/en/packages/com.termux/
 
 Install the application and do the update and upgrade 
 ```
