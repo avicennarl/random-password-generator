@@ -1,7 +1,7 @@
 # random-password-generator
 Based on loading random characters, the final result will contain a combination of uppercase, lowercase, and numbers.
 
-__How to Use?__
+***How to Use?***
 
 _Android_\
 Download Termux: https://f-droid.org/en/packages/com.termux/
