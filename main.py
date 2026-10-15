@@ -1,17 +1,20 @@
-#python 3.7.1
-import random
-import string
+#!/usr/bin/env python3
+"""Backwards-compatible entry point.
 
-print ("Welcome to Password Generator!")
-length = int(input('\nEnter the length of password: '))
+This repository used to ship a single ``main.py``. It now delegates to the
+``pwdgen`` package so existing instructions keep working:
 
-lower = string.ascii_lowercase
-upper = string.ascii_uppercase
-num = string.digits
+    python main.py -l 20 -s
+    python main.py --passphrase --words 4
+"""
+from __future__ import annotations
 
-all = lower + upper + num
+import os
+import sys
 
-temp = random.sample(all,length)
-password = "".join(temp)
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "src"))
 
-print(password)
+from pwdgen.cli import main  # noqa: E402
+
+if __name__ == "__main__":
+    main()
