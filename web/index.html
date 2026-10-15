@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pwdgen — offline password &amp; passphrase generator</title>
+    <meta
+      name="description"
+      content="Generate strong passwords and passphrases in your browser. 100% offline, no tracking, no network requests."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <header>
+        <h1>pwdgen</h1>
+        <p class="tagline">Secure passwords &amp; passphrases. 100% offline.</p>
+      </header>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-mode="password">Password</button>
+        <button class="tab" data-mode="passphrase">Passphrase</button>
+      </div>
+
+      <div id="password-panel">
+        <label class="row">
+          <span>Length</span>
+          <input id="length" type="number" min="1" max="128" value="20" />
+        </label>
+        <div class="checks">
+          <label><input id="noLower" type="checkbox" /> No lowercase</label>
+          <label><input id="noUpper" type="checkbox" /> No uppercase</label>
+          <label><input id="noDigits" type="checkbox" /> No digits</label>
+          <label><input id="symbols" type="checkbox" /> Symbols</label>
+          <label><input id="ambiguous" type="checkbox" /> Exclude ambiguous (Il1O0o)</label>
+        </div>
+      </div>
+
+      <div id="passphrase-panel" hidden>
+        <label class="row">
+          <span>Words</span>
+          <input id="words" type="number" min="1" max="12" value="4" />
+        </label>
+        <label class="row">
+          <span>Separator</span>
+          <input id="separator" type="text" maxlength="3" value="-" />
+        </label>
+        <div class="checks">
+          <label><input id="capitalize" type="checkbox" /> Capitalize</label>
+          <label><input id="number" type="checkbox" /> Include a number</label>
+        </div>
+      </div>
+
+      <output id="output" aria-live="polite"></output>
+      <div id="meta"></div>
+
+      <div class="actions">
+        <button id="regenerate" class="primary">Generate</button>
+        <button id="copy">Copy</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Nothing leaves your device — generation uses
+        <code>crypto.getRandomValues()</code>.
+      </p>
+    </footer>
+
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
